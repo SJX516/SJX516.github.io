@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="AS中的Gradle文件配置参考链接
+总览Android app module 的构建过程
+自定义构建配置Build Types
+
+Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
+
+Product Flavors
+
+Product flavors 代表app发行的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AS中的Gradle文件配置">
+<meta property="og:url" content="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/index.html">
+<meta property="og:site_name" content="Duchen's Blog">
+<meta property="og:description" content="AS中的Gradle文件配置参考链接
+总览Android app module 的构建过程
+自定义构建配置Build Types
+
+Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
+
+Product Flavors
+
+Product flavors 代表app发行的">
+<meta property="og:image" content="https://developer.android.com/images/tools/studio/build-process_2x.png">
+<meta property="og:updated_time" content="2016-11-24T11:58:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AS中的Gradle文件配置">
+<meta name="twitter:description" content="AS中的Gradle文件配置参考链接
+总览Android app module 的构建过程
+自定义构建配置Build Types
+
+Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
+
+Product Flavors
+
+Product flavors 代表app发行的">
+<meta name="twitter:image" content="https://developer.android.com/images/tools/studio/build-process_2x.png">
+    
+    
+    <!-- title -->
+    <title>AS中的Gradle文件配置</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+    <link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss -->
+    
+    
+    <!-- jquery -->
+    <script src="/lib/jquery/jquery.min.js"></script>
+</head>
+
+<body>
+    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/SJX516">Projects</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+      <ul>
+        
+        
+        <li><a class="icon" href="/2016/10/19/Okhttp header、post参数不支持中文的解决办法/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover='$("#i-next").toggle();' onmouseout='$("#i-next").toggle();'></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover='$("#i-top").toggle();' onmouseout='$("#i-top").toggle();'></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover='$("#i-share").toggle();' onmouseout='$("#i-share").toggle();' onclick='$("#share").toggle();return false;'></i></a></li>
+      </ul>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+        <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2016/11/24/AS中的Gradle文件配置/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2016/11/24/AS中的Gradle文件配置/&text=AS中的Gradle文件配置"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2016/11/24/AS中的Gradle文件配置/&title=AS中的Gradle文件配置"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2016/11/24/AS中的Gradle文件配置/&is_video=false&description=AS中的Gradle文件配置"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="mailto:?subject=AS中的Gradle文件配置&body=Check out this article: http://yoursite.com/2016/11/24/AS中的Gradle文件配置/"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2016/11/24/AS中的Gradle文件配置/&title=AS中的Gradle文件配置"><i class="fa fa-get-pocket" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2016/11/24/AS中的Gradle文件配置/&title=AS中的Gradle文件配置"><i class="fa fa-reddit" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2016/11/24/AS中的Gradle文件配置/&title=AS中的Gradle文件配置"><i class="fa fa-stumbleupon" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2016/11/24/AS中的Gradle文件配置/&title=AS中的Gradle文件配置"><i class="fa fa-digg" aria-hidden="true"></i></a></li>
+        <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2016/11/24/AS中的Gradle文件配置/&name=AS中的Gradle文件配置&description="><i class="fa fa-tumblr" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AS中的Gradle文件配置"><span class="toc-number">1.</span> <span class="toc-text">AS中的Gradle文件配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#总览"><span class="toc-number">1.1.</span> <span class="toc-text">总览</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Android-app-module-的构建过程"><span class="toc-number">1.1.1.</span> <span class="toc-text">Android app module 的构建过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义构建配置"><span class="toc-number">1.1.2.</span> <span class="toc-text">自定义构建配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#源代码设置"><span class="toc-number">1.1.3.</span> <span class="toc-text">源代码设置</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        AS中的Gradle文件配置
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">Duchen's Blog</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2016-11-24T11:58:06.000Z" itemprop="datePublished">2016-11-24</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="AS中的Gradle文件配置"><a href="#AS中的Gradle文件配置" class="headerlink" title="AS中的Gradle文件配置"></a>AS中的Gradle文件配置</h2><p><a href="https://developer.android.com/studio/build/index.html" target="_blank" rel="external">参考链接</a></p>
+<h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><h4 id="Android-app-module-的构建过程"><a href="#Android-app-module-的构建过程" class="headerlink" title="Android app module 的构建过程"></a>Android app module 的构建过程</h4><p><img src="https://developer.android.com/images/tools/studio/build-process_2x.png" alt="构建过程"></p>
+<h4 id="自定义构建配置"><a href="#自定义构建配置" class="headerlink" title="自定义构建配置"></a>自定义构建配置</h4><p>Build Types</p>
+<ul>
+<li>Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。</li>
+</ul>
+<p>Product Flavors</p>
+<ul>
+<li><p>Product flavors 代表app发行的不同版本，例如免费版和付费版，可以让不同的 Product flavors 使用不同的代码和资源文件，或者只是定义不同的渠道包。</p>
+</li>
+<li><p>defaultConfig 属于 Product Flavors，相当于默认的基本配置</p>
+</li>
+</ul>
+<p>Build Variants</p>
+<ul>
+<li>build variant = product flavor + build type, Gradle会把 product flavor 和 build type 的配置组合在一起，形成一个 build variant 的配置，由系统自动生成。</li>
+</ul>
+<p>Manifest Entries</p>
+<ul>
+<li><p>build variant 的部分配置信息会直接覆盖到 manifest 文件上去，例如 applicationId、versionName、target SDK version 等。</p>
+<p>  也可以通过 manifestPlaceholders 来配置跟不同的 build variant 相关的变量</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">defaultConfig &#123;</div><div class="line">    manifestPlaceholders = [NAME:&quot;value&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  然后这样在 manifest 中使用变量</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;meta-data</div><div class="line">    android:name=&quot;TYPE_VALUE&quot;</div><div class="line">    android:value=&quot;$&#123;NAME&#125;&quot; /&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Dependencies</p>
+<ul>
+<li>构建系统通过 dependencies 来管理本地依赖文件和远程仓库依赖。</li>
+</ul>
+<p>Signing</p>
+<ul>
+<li><p>可以在不同的 buildTypes 中配置 signingConfig 来选择签名配置，构建系统会使用默认的key去打包 debuggable 为 true 的版本，release版本的 signingConfig 需要自己配置。</p>
+<ul>
+<li>一个 applicationId 唯一确定一个apk</li>
+<li>相同的 applicationId，打包的key不同的话，以最先发布的apk的key为准</li>
+</ul>
+</li>
+</ul>
+<p>ProGuard</p>
+<ul>
+<li>不同的 build variants 可以采用不同的 ProGuard rules file，当配置了多个时，会把它们合并到一起。</li>
+</ul>
+<p>APK Splits</p>
+<ul>
+<li>可以使用指定的代码和资源文件来打包对应不同分辨率的apk。（当你的apk为了支持不同分辨率导致体积在100M以上时，才推荐这么做）</li>
+</ul>
+<h4 id="源代码设置"><a href="#源代码设置" class="headerlink" title="源代码设置"></a>源代码设置</h4><p>不同目录下的代码和资源文件会按照是否需要以及相应的优先级合并到一起，组合成最后的 buildVariant 所对应的代码</p>
+<p>src/main/</p>
+<ul>
+<li>This source set includes code and resources common to all build variants.</li>
+</ul>
+<p>src/\<buildtype>/</buildtype></p>
+<ul>
+<li>only for a specific build type.</li>
+</ul>
+<p>src/\<productflavor>/</productflavor></p>
+<ul>
+<li>only for a specific product flavor.</li>
+</ul>
+<p>src/\<productflavorbuildtype>/</productflavorbuildtype></p>
+<ul>
+<li>only for a specific build variant.</li>
+</ul>
+<p>当不同目录的代码有冲突时，会按照下面的优先级来选择</p>
+<blockquote>
+<p>build variant &gt; build type &gt; product flavor &gt; main source set &gt; library dependencies</p>
+</blockquote>
+
+  </div>
+</article>
+
+
+
+      </div>
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2016 Duchen&#39;s Blog
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Writing</a></li>
+         
+          <li><a href="https://github.com/SJX516">Projects</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- Google Analytics -->
+
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-86660611-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+<!-- Disqus Comments -->
+
+
+</body>
+</html>
