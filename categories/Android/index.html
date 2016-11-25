@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Gradle,配置," />
+  <meta name="keywords" content="Duchen, blog , Android , sjx , 尚嘉雄" />
 
 
 
@@ -84,42 +84,15 @@ is
 
 
 
-<meta name="description" content="AS中的Gradle文件配置参考链接
-总览Android app module 的构建过程
-自定义构建配置Build Types
-
-Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
-
-Product Flavors
-
-Product flavors 代表app发行的">
-<meta property="og:type" content="article">
-<meta property="og:title" content="AS中的Gradle文件配置">
-<meta property="og:url" content="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/index.html">
+<meta name="description" content="渡沉的博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Duchen's Blog">
+<meta property="og:url" content="http://yoursite.com/categories/Android/index.html">
 <meta property="og:site_name" content="Duchen's Blog">
-<meta property="og:description" content="AS中的Gradle文件配置参考链接
-总览Android app module 的构建过程
-自定义构建配置Build Types
-
-Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
-
-Product Flavors
-
-Product flavors 代表app发行的">
-<meta property="og:image" content="https://developer.android.com/images/tools/studio/build-process_2x.png">
-<meta property="og:updated_time" content="2016-11-25T08:53:15.000Z">
+<meta property="og:description" content="渡沉的博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AS中的Gradle文件配置">
-<meta name="twitter:description" content="AS中的Gradle文件配置参考链接
-总览Android app module 的构建过程
-自定义构建配置Build Types
-
-Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
-
-Product Flavors
-
-Product flavors 代表app发行的">
-<meta name="twitter:image" content="https://developer.android.com/images/tools/studio/build-process_2x.png">
+<meta name="twitter:title" content="Duchen's Blog">
+<meta name="twitter:description" content="渡沉的博客">
 
 
 
@@ -147,13 +120,13 @@ Product flavors 代表app发行的">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/"/>
+  <link rel="canonical" href="http://yoursite.com/categories/Android/"/>
 
 
 
 
 
-  <title> AS中的Gradle文件配置 | Duchen's Blog </title>
+  <title> 分类: Android | Duchen's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -183,7 +156,7 @@ Product flavors 代表app发行的">
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,252 +269,47 @@ Product flavors 代表app发行的">
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-expand">
-    
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="Duchen">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="Duchen's Blog">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="Duchen's Blog" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                AS中的Gradle文件配置
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-24T19:58:06+08:00">
-                2016-11-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/" itemprop="url" rel="index">
-                    <span itemprop="name">Android</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android/配置/" itemprop="url" rel="index">
-                    <span itemprop="name">配置</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <a href="/2016/11/24/AS中的Gradle文件配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/24/AS中的Gradle文件配置/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <h2 id="AS中的Gradle文件配置"><a href="#AS中的Gradle文件配置" class="headerlink" title="AS中的Gradle文件配置"></a>AS中的Gradle文件配置</h2><p><a href="https://developer.android.com/studio/build/index.html" target="_blank" rel="external">参考链接</a></p>
-<h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><h4 id="Android-app-module-的构建过程"><a href="#Android-app-module-的构建过程" class="headerlink" title="Android app module 的构建过程"></a>Android app module 的构建过程</h4><p><img src="https://developer.android.com/images/tools/studio/build-process_2x.png" alt="构建过程"></p>
-<h4 id="自定义构建配置"><a href="#自定义构建配置" class="headerlink" title="自定义构建配置"></a>自定义构建配置</h4><p>Build Types</p>
-<ul>
-<li>Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。</li>
-</ul>
-<p>Product Flavors</p>
-<ul>
-<li><p>Product flavors 代表app发行的不同版本，例如免费版和付费版，可以让不同的 Product flavors 使用不同的代码和资源文件，或者只是定义不同的渠道包。</p>
-</li>
-<li><p>defaultConfig 属于 Product Flavors，相当于默认的基本配置</p>
-</li>
-</ul>
-<p>Build Variants</p>
-<ul>
-<li>build variant = product flavor + build type, Gradle会把 product flavor 和 build type 的配置组合在一起，形成一个 build variant 的配置，由系统自动生成。</li>
-</ul>
-<p>Manifest Entries</p>
-<ul>
-<li><p>build variant 的部分配置信息会直接覆盖到 manifest 文件上去，例如 applicationId、versionName、target SDK version 等。</p>
-<p>  也可以通过 manifestPlaceholders 来配置跟不同的 build variant 相关的变量</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">defaultConfig &#123;</div><div class="line">    manifestPlaceholders = [NAME:&quot;value&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>  然后这样在 manifest 中使用变量</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;meta-data</div><div class="line">    android:name=&quot;TYPE_VALUE&quot;</div><div class="line">    android:value=&quot;$&#123;NAME&#125;&quot; /&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>Dependencies</p>
-<ul>
-<li>构建系统通过 dependencies 来管理本地依赖文件和远程仓库依赖。</li>
-</ul>
-<p>Signing</p>
-<ul>
-<li><p>可以在不同的 buildTypes 中配置 signingConfig 来选择签名配置，构建系统会使用默认的key去打包 debuggable 为 true 的版本，release版本的 signingConfig 需要自己配置。</p>
-<ul>
-<li>一个 applicationId 唯一确定一个apk</li>
-<li>相同的 applicationId，打包的key不同的话，以最先发布的apk的key为准</li>
-</ul>
-</li>
-</ul>
-<p>ProGuard</p>
-<ul>
-<li>不同的 build variants 可以采用不同的 ProGuard rules file，当配置了多个时，会把它们合并到一起。</li>
-</ul>
-<p>APK Splits</p>
-<ul>
-<li>可以使用指定的代码和资源文件来打包对应不同分辨率的apk。（当你的apk为了支持不同分辨率导致体积在100M以上时，才推荐这么做）</li>
-</ul>
-<h4 id="源代码设置"><a href="#源代码设置" class="headerlink" title="源代码设置"></a>源代码设置</h4><p>不同目录下的代码和资源文件会按照是否需要以及相应的优先级合并到一起，组合成最后的 buildVariant 所对应的代码</p>
-<p>src/main/</p>
-<ul>
-<li>This source set includes code and resources common to all build variants.</li>
-</ul>
-<p>src/buildType/</p>
-<ul>
-<li>only for a specific build type.</li>
-</ul>
-<p>src/productFlavor/</p>
-<ul>
-<li>only for a specific product flavor.</li>
-</ul>
-<p>src/productFlavorBuildType/</p>
-<ul>
-<li>only for a specific build variant.</li>
-</ul>
-<p>当不同目录的代码有冲突时，会按照下面的优先级来选择</p>
-<blockquote>
-<p>build variant &gt; build type &gt; product flavor &gt; main source set &gt; library dependencies</p>
-</blockquote>
-
-      
+  <section id="posts" class="posts-collapse">
+    <div class="collection-title">
+      <h2 >
+        Android
+        <small>分类</small>
+      </h2>
     </div>
 
-    <div>
+    
       
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h1 class="post-title">
         
-
-      
-    </div>
-
-    <div>
-      
+            <a class="post-title-link" href="/2016/11/24/AS中的Gradle文件配置/" itemprop="url">
+              
+                <span itemprop="name">AS中的Gradle文件配置</span>
+              
+            </a>
         
+      </h1>
 
-      
-    </div>
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated"
+              datetime="2016-11-24T19:58:06+08:00"
+              content="2016-11-24" >
+          11-24
+        </time>
+      </div>
 
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Gradle/" rel="tag"># Gradle</a>
-          
-            <a href="/tags/配置/" rel="tag"># 配置</a>
-          
-        </div>
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/10/19/Okhttp header、post参数不支持中文的解决办法/" rel="next" title="Okhttp header、post参数不支持中文的解决办法">
-                <i class="fa fa-chevron-left"></i> Okhttp header、post参数不支持中文的解决办法
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
+    </header>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+
 
 
           </div>
@@ -549,14 +317,6 @@ Product flavors 代表app发行的">
 
 
           
-  <div class="comments" id="comments">
-    
-      <div class="ds-thread" data-thread-key="2016/11/24/AS中的Gradle文件配置/"
-           data-title="AS中的Gradle文件配置" data-url="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/">
-      </div>
-    
-  </div>
-
 
         </div>
         
@@ -576,17 +336,8 @@ Product flavors 代表app发行的">
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -650,22 +401,6 @@ Product flavors 代表app发行的">
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AS中的Gradle文件配置"><span class="nav-number">1.</span> <span class="nav-text">AS中的Gradle文件配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总览"><span class="nav-number">1.1.</span> <span class="nav-text">总览</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Android-app-module-的构建过程"><span class="nav-number">1.1.1.</span> <span class="nav-text">Android app module 的构建过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义构建配置"><span class="nav-number">1.1.2.</span> <span class="nav-text">自定义构建配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码设置"><span class="nav-number">1.1.3.</span> <span class="nav-text">源代码设置</span></a></li></ol></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
     </div>
@@ -771,10 +506,6 @@ Product flavors 代表app发行的">
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
 
   
 
