@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Gradle,配置," />
+  <meta name="keywords" content="源码分析,RxJava," />
 
 
 
@@ -84,42 +84,21 @@
 
 
 
-<meta name="description" content="AS中的Gradle文件配置参考链接
-总览Android app module 的构建过程
-自定义构建配置Build Types
-
-Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
-
-Product Flavors
-
-Product flavors 代表app发行的">
+<meta name="description" content="RxJava基础使用及原理分析基本使用12345678910111213141516171819202122Observable.create(new OnSubscribe&amp;lt;Drawable&amp;gt;() &amp;#123;    @Override    public void call(Subscriber&amp;lt;? super Drawable&amp;gt; subscriber) &amp;#123;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AS中的Gradle文件配置">
-<meta property="og:url" content="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/index.html">
+<meta property="og:title" content="RxJava基础使用及原理分析">
+<meta property="og:url" content="http://yoursite.com/2016/11/21/RxJava基础使用及原理分析/index.html">
 <meta property="og:site_name" content="Duchen's Blog">
-<meta property="og:description" content="AS中的Gradle文件配置参考链接
-总览Android app module 的构建过程
-自定义构建配置Build Types
-
-Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
-
-Product Flavors
-
-Product flavors 代表app发行的">
-<meta property="og:image" content="https://developer.android.com/images/tools/studio/build-process_2x.png">
-<meta property="og:updated_time" content="2016-11-30T04:03:31.000Z">
+<meta property="og:description" content="RxJava基础使用及原理分析基本使用12345678910111213141516171819202122Observable.create(new OnSubscribe&amp;lt;Drawable&amp;gt;() &amp;#123;    @Override    public void call(Subscriber&amp;lt;? super Drawable&amp;gt; subscriber) &amp;#123;">
+<meta property="og:image" content="http://note.youdao.com/yws/public/resource/d561463f901642d6b67870c9038fd259/xmlnote/WEBRESOURCE4087b3e15d0a3eb6163fc39d311bb22d/652">
+<meta property="og:image" content="http://note.youdao.com/yws/public/resource/d561463f901642d6b67870c9038fd259/xmlnote/WEBRESOURCEfa5e9dd2e0e4fded0a94d5b157f556ee/637">
+<meta property="og:image" content="http://note.youdao.com/yws/public/resource/d561463f901642d6b67870c9038fd259/xmlnote/WEBRESOURCE994b31ca756b7902605c8074ed641744/649">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw1024/52eb2279jw1f2rxd1vl7xj20hd0hzq6e.jpg">
+<meta property="og:updated_time" content="2016-12-04T08:33:18.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AS中的Gradle文件配置">
-<meta name="twitter:description" content="AS中的Gradle文件配置参考链接
-总览Android app module 的构建过程
-自定义构建配置Build Types
-
-Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
-
-Product Flavors
-
-Product flavors 代表app发行的">
-<meta name="twitter:image" content="https://developer.android.com/images/tools/studio/build-process_2x.png">
+<meta name="twitter:title" content="RxJava基础使用及原理分析">
+<meta name="twitter:description" content="RxJava基础使用及原理分析基本使用12345678910111213141516171819202122Observable.create(new OnSubscribe&amp;lt;Drawable&amp;gt;() &amp;#123;    @Override    public void call(Subscriber&amp;lt;? super Drawable&amp;gt; subscriber) &amp;#123;">
+<meta name="twitter:image" content="http://note.youdao.com/yws/public/resource/d561463f901642d6b67870c9038fd259/xmlnote/WEBRESOURCE4087b3e15d0a3eb6163fc39d311bb22d/652">
 
 
 
@@ -147,13 +126,13 @@ Product flavors 代表app发行的">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/21/RxJava基础使用及原理分析/"/>
 
 
 
 
 
-  <title> AS中的Gradle文件配置 | Duchen's Blog </title>
+  <title> RxJava基础使用及原理分析 | Duchen's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -306,7 +285,7 @@ Product flavors 代表app发行的">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/21/RxJava基础使用及原理分析/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Duchen">
@@ -330,7 +309,7 @@ Product flavors 代表app发行的">
             
             
               
-                AS中的Gradle文件配置
+                RxJava基础使用及原理分析
               
             
           </h1>
@@ -343,8 +322,8 @@ Product flavors 代表app发行的">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-24T19:58:06+08:00">
-                2016-11-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-21T16:30:56+08:00">
+                2016-11-21
               </time>
             
 
@@ -377,8 +356,8 @@ Product flavors 代表app发行的">
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/11/24/AS中的Gradle文件配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/24/AS中的Gradle文件配置/" itemprop="commentCount"></span>
+                <a href="/2016/11/21/RxJava基础使用及原理分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/RxJava基础使用及原理分析/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -404,74 +383,33 @@ Product flavors 代表app发行的">
       
 
       
-        <h2 id="AS中的Gradle文件配置"><a href="#AS中的Gradle文件配置" class="headerlink" title="AS中的Gradle文件配置"></a>AS中的Gradle文件配置</h2><p><a href="https://developer.android.com/studio/build/index.html" target="_blank" rel="external">参考链接</a></p>
-<h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><h4 id="Android-app-module-的构建过程"><a href="#Android-app-module-的构建过程" class="headerlink" title="Android app module 的构建过程"></a>Android app module 的构建过程</h4><p><img src="https://developer.android.com/images/tools/studio/build-process_2x.png" alt="构建过程"></p>
-<h4 id="自定义构建配置"><a href="#自定义构建配置" class="headerlink" title="自定义构建配置"></a>自定义构建配置</h4><p>Build Types</p>
-<ul>
-<li>Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。</li>
+        <h2 id="RxJava基础使用及原理分析"><a href="#RxJava基础使用及原理分析" class="headerlink" title="RxJava基础使用及原理分析"></a>RxJava基础使用及原理分析</h2><h4 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">Observable.create(new OnSubscribe&lt;Drawable&gt;() &#123;</div><div class="line">    @Override</div><div class="line">    public void call(Subscriber&lt;? super Drawable&gt; subscriber) &#123;</div><div class="line">        Drawable drawable = getTheme().getDrawable(drawableRes));</div><div class="line">        subscriber.onNext(drawable);</div><div class="line">        subscriber.onCompleted();</div><div class="line">    &#125;</div><div class="line">&#125;).subscribe(new Observer&lt;Drawable&gt;() &#123;</div><div class="line">    @Override</div><div class="line">    public void onNext(Drawable drawable) &#123;</div><div class="line">        imageView.setImageDrawable(drawable);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onCompleted() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void onError(Throwable e) &#123;</div><div class="line">        Toast.makeText(activity, &quot;Error!&quot;, Toast.LENGTH_SHORT).show();</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/public/resource/d561463f901642d6b67870c9038fd259/xmlnote/WEBRESOURCE4087b3e15d0a3eb6163fc39d311bb22d/652" alt="Observable"></p>
+<h4 id="变换的原理：lift"><a href="#变换的原理：lift" class="headerlink" title="变换的原理：lift()"></a>变换的原理：lift()</h4><p>先是一个Operator的概念：</p>
+<p><img src="http://note.youdao.com/yws/public/resource/d561463f901642d6b67870c9038fd259/xmlnote/WEBRESOURCEfa5e9dd2e0e4fded0a94d5b157f556ee/637" alt="Operator"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">// 注意：这不是 lift() 的源码，而是将源码中与性能、兼容性、扩展性有关的代码剔除后的核心代码。</div><div class="line">// 如果需要看源码，可以去 RxJava 的 GitHub 仓库下载。</div><div class="line">public &lt;R&gt; Observable&lt;R&gt; lift(Operator&lt;? extends R, ? super T&gt; operator) &#123;</div><div class="line">    return Observable.create(new OnSubscribe&lt;R&gt;() &#123;</div><div class="line">        @Override</div><div class="line">        public void call(Subscriber subscriber) &#123;</div><div class="line">            Subscriber newSubscriber = operator.call(subscriber);</div><div class="line">            newSubscriber.onStart();</div><div class="line">            onSubscribe.call(newSubscriber);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/public/resource/d561463f901642d6b67870c9038fd259/xmlnote/WEBRESOURCE994b31ca756b7902605c8074ed641744/649" alt="链式调用"></p>
+<p>当含有 lift() 时： </p>
+<ol>
+<li>lift() 创建了一个 Observable 后，加上之前的原始 Observable，已经有两个 Observable 了； </li>
+<li>而同样地，新 Observable 里的新 OnSubscribe 加上之前的原始 Observable 中的原始 OnSubscribe，也就有了两个 OnSubscribe； </li>
+<li>当用户调用经过 lift() 后的 Observable 的 subscribe() 的时候，使用的是 lift() 所返回的新的 Observable ，于是它所触发的 onSubscribe.call(subscriber)，也是用的新 Observable 中的新 OnSubscribe，即在 lift() 中生成的那个 OnSubscribe； </li>
+<li>而这个新 OnSubscribe 的 call() 方法中的 onSubscribe ，就是指的原始 Observable 中的原始 OnSubscribe ，在这个 call() 方法里，新 OnSubscribe 利用 operator.call(subscriber) 生成了一个新的 Subscriber（Operator 就是在这里，通过自己的 call() 方法将新 Subscriber 和原始 Subscriber 进行关联，并插入自己的『变换』代码以实现变换），然后利用这个新 Subscriber 向原始 Observable 进行订阅。 </li>
+</ol>
+<p>这样就实现了 lift() 过程，有点像一种代理机制，通过事件拦截和处理实现事件序列的变换。</p>
+<h4 id="Scheduler-的原理"><a href="#Scheduler-的原理" class="headerlink" title="Scheduler 的原理"></a>Scheduler 的原理</h4><ul>
+<li>subscribeOn：在OnSubscriberB的call方法切换线程并构建newSubscriber</li>
 </ul>
-<p>Product Flavors</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">// subscriberOn的核心代码</div><div class="line">public final Observable&lt;T&gt; subscribeOn(Scheduler scheduler) &#123;</div><div class="line">    return Observable.create(new Observable.OnSubscribe&lt;T&gt;() &#123;</div><div class="line">        @Override</div><div class="line">        public void call(Subscriber&lt;? super T&gt; subscriber) &#123;</div><div class="line">            final Scheduler.Worker inner = scheduler.createWorker();</div><div class="line">            inner.schedule(new Action0() &#123;</div><div class="line">                @Override</div><div class="line">                public void call() &#123;</div><div class="line">                    Subscriber&lt;T&gt; newSubscriber = new Subscriber&lt;T&gt;(subscriber) &#123;</div><div class="line">                        @Override</div><div class="line">                        public void onNext(T t) &#123;</div><div class="line">                            subscriber.onNext(t);</div><div class="line">                        &#125;</div><div class="line">                        @Override</div><div class="line">                        public void onError(Throwable e) &#123;</div><div class="line">                            subscriber.onError(e);</div><div class="line">                        &#125;</div><div class="line">                        @Override</div><div class="line">                        public void onCompleted() &#123;</div><div class="line">                            subscriber.onCompleted();</div><div class="line">                        &#125;</div><div class="line">                    &#125;;</div><div class="line">                    newSubscriber.onStart();</div><div class="line">                    onSubscribe.call(newSubscriber);</div><div class="line">                &#125;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li><p>Product flavors 代表app发行的不同版本，例如免费版和付费版，可以让不同的 Product flavors 使用不同的代码和资源文件，或者只是定义不同的渠道包。</p>
+<li><p>observeOn：比较复杂，不贴代码了，过程就是一个lift操作，提供了一个中间的ObserveOnSubscriber，每当ObserveOnSubscriber收到一个onNext或其他消息时，就调用Worker在相应的线程中处理这条消息</p>
 </li>
-<li><p>defaultConfig 属于 Product Flavors，相当于默认的基本配置</p>
-</li>
-</ul>
-<p>Build Variants</p>
-<ul>
-<li>build variant = product flavor + build type, Gradle会把 product flavor 和 build type 的配置组合在一起，形成一个 build variant 的配置，由系统自动生成。</li>
-</ul>
-<p>Manifest Entries</p>
-<ul>
-<li><p>build variant 的部分配置信息会直接覆盖到 manifest 文件上去，例如 applicationId、versionName、target SDK version 等。</p>
-<p>  也可以通过 manifestPlaceholders 来配置跟不同的 build variant 相关的变量</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">defaultConfig &#123;</div><div class="line">    manifestPlaceholders = [NAME:&quot;value&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>  然后这样在 manifest 中使用变量</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;meta-data</div><div class="line">    android:name=&quot;TYPE_VALUE&quot;</div><div class="line">    android:value=&quot;$&#123;NAME&#125;&quot; /&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>Dependencies</p>
-<ul>
-<li>构建系统通过 dependencies 来管理本地依赖文件和远程仓库依赖。</li>
-</ul>
-<p>Signing</p>
-<ul>
-<li><p>可以在不同的 buildTypes 中配置 signingConfig 来选择签名配置，构建系统会使用默认的key去打包 debuggable 为 true 的版本，release版本的 signingConfig 需要自己配置。</p>
-<ul>
-<li>一个 applicationId 唯一确定一个apk</li>
-<li>相同的 applicationId，打包的key不同的话，以最先发布的apk的key为准</li>
-</ul>
+<li><p>当多个 subscribeOn() 和 observeOn() 混合使用时</p>
+<p>  <img src="http://ww1.sinaimg.cn/mw1024/52eb2279jw1f2rxd1vl7xj20hd0hzq6e.jpg" alt=""></p>
+<p>  图中共有 5 处含有对事件的操作。由图中可以看出，①和②两处受第一个 subscribeOn() 影响，运行在红色线程；③和④处受第一个 observeOn() 的影响，运行在绿色线程；⑤处受第二个 onserveOn() 影响，运行在紫色线程；而第二个 subscribeOn() ，由于在通知过程中线程就被第一个 subscribeOn() 截断，因此对整个流程并没有任何影响。这里也就回答了前面的问题：当使用了多个 subscribeOn() 的时候，只有第一个 subscribeOn() 起作用。</p>
 </li>
 </ul>
-<p>ProGuard</p>
-<ul>
-<li>不同的 build variants 可以采用不同的 ProGuard rules file，当配置了多个时，会把它们合并到一起。</li>
-</ul>
-<p>APK Splits</p>
-<ul>
-<li>可以使用指定的代码和资源文件来打包对应不同分辨率的apk。（当你的apk为了支持不同分辨率导致体积在100M以上时，才推荐这么做）</li>
-</ul>
-<h4 id="源代码设置"><a href="#源代码设置" class="headerlink" title="源代码设置"></a>源代码设置</h4><p>不同目录下的代码和资源文件会按照是否需要以及相应的优先级合并到一起，组合成最后的 buildVariant 所对应的代码</p>
-<p>src/main/</p>
-<ul>
-<li>This source set includes code and resources common to all build variants.</li>
-</ul>
-<p>src/buildType/</p>
-<ul>
-<li>only for a specific build type.</li>
-</ul>
-<p>src/productFlavor/</p>
-<ul>
-<li>only for a specific product flavor.</li>
-</ul>
-<p>src/productFlavorBuildType/</p>
-<ul>
-<li>only for a specific build variant.</li>
-</ul>
-<p>当不同目录的代码有冲突时，会按照下面的优先级来选择</p>
-<blockquote>
-<p>build variant &gt; build type &gt; product flavor &gt; main source set &gt; library dependencies</p>
-</blockquote>
+<h4 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h4><p><a href="http://gank.io/post/560e15be2dca930e00da1083" target="_blank" rel="external">给 Android 开发者的 RxJava 详解</a></p>
 
       
     </div>
@@ -495,9 +433,9 @@ Product flavors 代表app发行的">
       
         <div class="post-tags">
           
-            <a href="/tags/Gradle/" rel="tag"># Gradle</a>
+            <a href="/tags/源码分析/" rel="tag"># 源码分析</a>
           
-            <a href="/tags/配置/" rel="tag"># 配置</a>
+            <a href="/tags/RxJava/" rel="tag"># RxJava</a>
           
         </div>
       
@@ -506,8 +444,8 @@ Product flavors 代表app发行的">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/21/RxJava基础使用及原理分析/" rel="next" title="RxJava基础使用及原理分析">
-                <i class="fa fa-chevron-left"></i> RxJava基础使用及原理分析
+              <a href="/2016/11/04/Fresco介绍/" rel="next" title="Fresco介绍">
+                <i class="fa fa-chevron-left"></i> Fresco介绍
               </a>
             
           </div>
@@ -516,8 +454,8 @@ Product flavors 代表app发行的">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/30/iTerm2配色设置/" rel="prev" title="iTerm2配色设置">
-                iTerm2配色设置 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/11/24/AS中的Gradle文件配置/" rel="prev" title="AS中的Gradle文件配置">
+                AS中的Gradle文件配置 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -544,8 +482,8 @@ Product flavors 代表app发行的">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/24/AS中的Gradle文件配置/"
-           data-title="AS中的Gradle文件配置" data-url="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/">
+      <div class="ds-thread" data-thread-key="2016/11/21/RxJava基础使用及原理分析/"
+           data-title="RxJava基础使用及原理分析" data-url="http://yoursite.com/2016/11/21/RxJava基础使用及原理分析/">
       </div>
     
   </div>
@@ -653,7 +591,7 @@ Product flavors 代表app发行的">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AS中的Gradle文件配置"><span class="nav-number">1.</span> <span class="nav-text">AS中的Gradle文件配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总览"><span class="nav-number">1.1.</span> <span class="nav-text">总览</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Android-app-module-的构建过程"><span class="nav-number">1.1.1.</span> <span class="nav-text">Android app module 的构建过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义构建配置"><span class="nav-number">1.1.2.</span> <span class="nav-text">自定义构建配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码设置"><span class="nav-number">1.1.3.</span> <span class="nav-text">源代码设置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RxJava基础使用及原理分析"><span class="nav-number">1.</span> <span class="nav-text">RxJava基础使用及原理分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本使用"><span class="nav-number">1.0.1.</span> <span class="nav-text">基本使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#变换的原理：lift"><span class="nav-number">1.0.2.</span> <span class="nav-text">变换的原理：lift()</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scheduler-的原理"><span class="nav-number">1.0.3.</span> <span class="nav-text">Scheduler 的原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考链接"><span class="nav-number">1.0.4.</span> <span class="nav-text">参考链接</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

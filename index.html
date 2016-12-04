@@ -281,6 +281,159 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/04/OkHttp源码分析/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Duchen">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Duchen's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Duchen's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/12/04/OkHttp源码分析/" itemprop="url">
+                  OkHttp源码分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T16:20:12+08:00">
+                2016-12-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/12/04/OkHttp源码分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/OkHttp源码分析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          异步请求流程
+从这样一句话开始发出一个异步的请求
+
+okHttpClient.newCall(request).enqueue(callback);
+
+实际上调用的是 RealCall 的 enqueue 方法，将回调包装成一个 AsyncCall(NamedRunnabled的子类) 传递给了 C
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/12/04/OkHttp源码分析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/iTerm2配色设置/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -582,7 +735,7 @@ Build types 通常用于定义开发周期中的不同阶段，例如在 debug �
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/19/Okhttp header、post参数不支持中文的解决办法/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/21/RxJava基础使用及原理分析/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Duchen">
@@ -607,8 +760,309 @@ Build types 通常用于定义开发周期中的不同阶段，例如在 debug �
             
               
                 
-                <a class="post-title-link" href="/2016/10/19/Okhttp header、post参数不支持中文的解决办法/" itemprop="url">
-                  Okhttp header、post参数不支持中文的解决办法
+                <a class="post-title-link" href="/2016/11/21/RxJava基础使用及原理分析/" itemprop="url">
+                  RxJava基础使用及原理分析
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-21T16:30:56+08:00">
+                2016-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/21/RxJava基础使用及原理分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/21/RxJava基础使用及原理分析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          RxJava基础使用及原理分析基本使用12345678910111213141516171819202122Observable.create(new OnSubscribe&lt;Drawable&gt;() &#123;    @Override    public void call(Subs
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/21/RxJava基础使用及原理分析/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/04/Fresco介绍/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Duchen">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Duchen's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Duchen's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/04/Fresco介绍/" itemprop="url">
+                  Fresco介绍
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-04T10:24:28+08:00">
+                2016-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android/" itemprop="url" rel="index">
+                    <span itemprop="name">Android</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/04/Fresco介绍/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/04/Fresco介绍/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Fresco介绍###关于 Fresco
+Fresco中文文档
+详细使用
+ImagePipe 指南
+Fresco 是一个强大的图片加载组件。
+Fresco 中设计有一个叫做 image pipeline 的模块。它负责从网络，从本地文件系统，本地资源加载图片。为了最大限度节省空间和CPU时间，它含有
+          ...
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/04/Fresco介绍/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/10/19/OkHttp header、post参数不支持中文的解决办法/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Duchen">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="Duchen's Blog">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="Duchen's Blog" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/10/19/OkHttp header、post参数不支持中文的解决办法/" itemprop="url">
+                  OkHttp header、post参数不支持中文的解决办法
                 </a>
               
             
@@ -638,8 +1092,8 @@ Build types 通常用于定义开发周期中的不同阶段，例如在 debug �
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/10/19/Okhttp header、post参数不支持中文的解决办法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/19/Okhttp header、post参数不支持中文的解决办法/" itemprop="commentCount"></span>
+                <a href="/2016/10/19/OkHttp header、post参数不支持中文的解决办法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/10/19/OkHttp header、post参数不支持中文的解决办法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -676,7 +1130,7 @@ Unexpected char xx at xx in xx value: xxx
           ...
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/10/19/Okhttp header、post参数不支持中文的解决办法/#more" rel="contents">
+            <a class="btn" href="/2016/10/19/OkHttp header、post参数不支持中文的解决办法/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -749,7 +1203,7 @@ Unexpected char xx at xx in xx value: xxx
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -766,7 +1220,7 @@ Unexpected char xx at xx in xx value: xxx
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

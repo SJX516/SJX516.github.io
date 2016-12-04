@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="Duchen's Blog">
 <meta property="og:description" content="iTerm2 颜色生效配置bash设置在导入并应用完颜色方案之后，通过命令vim ~/.bash_profile 或open ~/.bash_profile编辑文件，添加以下内容，之后source ~/.bash_profile来应用文件修改。
 1234CLICOLOR=1LSCOLORS=gxfxcxdxbxegedabagacadexport PS1=&amp;apos;\[\033[01;32m\]">
-<meta property="og:updated_time" content="2016-11-30T05:09:05.000Z">
+<meta property="og:updated_time" content="2016-12-04T08:23:04.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iTerm2配色设置">
 <meta name="twitter:description" content="iTerm2 颜色生效配置bash设置在导入并应用完颜色方案之后，通过命令vim ~/.bash_profile 或open ~/.bash_profile编辑文件，添加以下内容，之后source ~/.bash_profile来应用文件修改。
@@ -381,14 +381,14 @@
       
 
       
-        <h2 id="iTerm2-颜色生效配置"><a href="#iTerm2-颜色生效配置" class="headerlink" title="iTerm2 颜色生效配置"></a>iTerm2 颜色生效配置</h2><h4 id="bash设置"><a href="#bash设置" class="headerlink" title="bash设置"></a>bash设置</h4><p>在导入并应用完颜色方案之后，通过命令<code>vim ~/.bash_profile</code> 或<code>open ~/.bash_profile</code>编辑文件，添加以下内容，之后<code>source ~/.bash_profile</code>来应用文件修改。</p>
+        <h2 id="iTerm2-颜色生效配置"><a href="#iTerm2-颜色生效配置" class="headerlink" title="iTerm2 颜色生效配置"></a>iTerm2 颜色生效配置</h2><h3 id="bash设置"><a href="#bash设置" class="headerlink" title="bash设置"></a>bash设置</h3><p>在导入并应用完颜色方案之后，通过命令<code>vim ~/.bash_profile</code> 或<code>open ~/.bash_profile</code>编辑文件，添加以下内容，之后<code>source ~/.bash_profile</code>来应用文件修改。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">CLICOLOR=1</div><div class="line">LSCOLORS=gxfxcxdxbxegedabagacad</div><div class="line">export PS1=&apos;\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\]\$ &apos;</div><div class="line">export TERM=xterm-color</div></pre></td></tr></table></figure>
 <p>这样之后ls还是不能显示颜色，需要指定<code>ls -G</code>才能显示颜色，这里我们可以为它配置别名，通过命令<code>vim ~/.bashrc</code>或<code>open ~/.bashrc</code>编辑文件，添加以下内容，之后<code>source ~/.bashrc</code>来应用修改。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">alias ll=&apos;ls -lG&apos;</div><div class="line">alias ls=&apos;ls -G&apos;</div></pre></td></tr></table></figure>
 <p>保存后还需对 .bash_profile 进行一些设置。打开 .bash_profile 文件，添加以下内容。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">if [ -f ~/.bashrc ]; then</div><div class="line">      source ~/.bashrc</div><div class="line">fi</div></pre></td></tr></table></figure>
 <p>原因是对于Mac系统，每次开机运行时是执行 .bash_profile 文件，而不会执行 .bashrc 文件，所以在 .bash_profile 文件中添加上述内容，让Mac在执行 .bash_profile 时让 .bashrc 文件生效。</p>
-<h4 id="zsh设置"><a href="#zsh设置" class="headerlink" title="zsh设置"></a>zsh设置</h4><p>或者直接将shell改为zsh，便可以直接使用对应的配色了</p>
+<h3 id="zsh设置"><a href="#zsh设置" class="headerlink" title="zsh设置"></a>zsh设置</h3><p>或者直接将shell改为zsh，便可以直接使用对应的配色了</p>
 <ul>
 <li><p>克隆这个项目到本地(前提是你得有装git)</p>
 <p>  <code>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh</code></p>
@@ -447,6 +447,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/04/OkHttp源码分析/" rel="prev" title="OkHttp源码分析">
+                OkHttp源码分析 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -518,7 +522,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -535,7 +539,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -581,7 +585,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iTerm2-颜色生效配置"><span class="nav-number">1.</span> <span class="nav-text">iTerm2 颜色生效配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bash设置"><span class="nav-number">1.0.1.</span> <span class="nav-text">bash设置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#zsh设置"><span class="nav-number">1.0.2.</span> <span class="nav-text">zsh设置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#iTerm2-颜色生效配置"><span class="nav-number">1.</span> <span class="nav-text">iTerm2 颜色生效配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bash设置"><span class="nav-number">1.1.</span> <span class="nav-text">bash设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh设置"><span class="nav-number">1.2.</span> <span class="nav-text">zsh设置</span></a></li></ol></li></ol></div>
             
 
           </div>

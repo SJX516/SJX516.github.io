@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Gradle,配置," />
+  <meta name="keywords" content="OkHttp,源码分析," />
 
 
 
@@ -84,42 +84,37 @@
 
 
 
-<meta name="description" content="AS中的Gradle文件配置参考链接
-总览Android app module 的构建过程
-自定义构建配置Build Types
+<meta name="description" content="异步请求流程
+从这样一句话开始发出一个异步的请求
 
-Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
+okHttpClient.newCall(request).enqueue(callback);
 
-Product Flavors
+实际上调用的是 RealCall 的 enqueue 方法，将回调包装成一个 AsyncCall(NamedRunnabled的子类) 传递给了 Client 的 Dispatcher
 
-Product flavors 代表app发行的">
+12345678910111213//@see OkHttp">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AS中的Gradle文件配置">
-<meta property="og:url" content="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/index.html">
+<meta property="og:title" content="OkHttp源码分析">
+<meta property="og:url" content="http://yoursite.com/2016/12/04/OkHttp源码分析/index.html">
 <meta property="og:site_name" content="Duchen's Blog">
-<meta property="og:description" content="AS中的Gradle文件配置参考链接
-总览Android app module 的构建过程
-自定义构建配置Build Types
+<meta property="og:description" content="异步请求流程
+从这样一句话开始发出一个异步的请求
 
-Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
+okHttpClient.newCall(request).enqueue(callback);
 
-Product Flavors
+实际上调用的是 RealCall 的 enqueue 方法，将回调包装成一个 AsyncCall(NamedRunnabled的子类) 传递给了 Client 的 Dispatcher
 
-Product flavors 代表app发行的">
-<meta property="og:image" content="https://developer.android.com/images/tools/studio/build-process_2x.png">
-<meta property="og:updated_time" content="2016-11-30T04:03:31.000Z">
+12345678910111213//@see OkHttp">
+<meta property="og:updated_time" content="2016-12-04T08:24:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AS中的Gradle文件配置">
-<meta name="twitter:description" content="AS中的Gradle文件配置参考链接
-总览Android app module 的构建过程
-自定义构建配置Build Types
+<meta name="twitter:title" content="OkHttp源码分析">
+<meta name="twitter:description" content="异步请求流程
+从这样一句话开始发出一个异步的请求
 
-Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。
+okHttpClient.newCall(request).enqueue(callback);
 
-Product Flavors
+实际上调用的是 RealCall 的 enqueue 方法，将回调包装成一个 AsyncCall(NamedRunnabled的子类) 传递给了 Client 的 Dispatcher
 
-Product flavors 代表app发行的">
-<meta name="twitter:image" content="https://developer.android.com/images/tools/studio/build-process_2x.png">
+12345678910111213//@see OkHttp">
 
 
 
@@ -147,13 +142,13 @@ Product flavors 代表app发行的">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/04/OkHttp源码分析/"/>
 
 
 
 
 
-  <title> AS中的Gradle文件配置 | Duchen's Blog </title>
+  <title> OkHttp源码分析 | Duchen's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -306,7 +301,7 @@ Product flavors 代表app发行的">
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/04/OkHttp源码分析/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Duchen">
@@ -330,7 +325,7 @@ Product flavors 代表app发行的">
             
             
               
-                AS中的Gradle文件配置
+                OkHttp源码分析
               
             
           </h1>
@@ -343,8 +338,8 @@ Product flavors 代表app发行的">
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-24T19:58:06+08:00">
-                2016-11-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-04T16:20:12+08:00">
+                2016-12-04
               </time>
             
 
@@ -377,8 +372,8 @@ Product flavors 代表app发行的">
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/11/24/AS中的Gradle文件配置/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/24/AS中的Gradle文件配置/" itemprop="commentCount"></span>
+                <a href="/2016/12/04/OkHttp源码分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/04/OkHttp源码分析/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -404,74 +399,40 @@ Product flavors 代表app发行的">
       
 
       
-        <h2 id="AS中的Gradle文件配置"><a href="#AS中的Gradle文件配置" class="headerlink" title="AS中的Gradle文件配置"></a>AS中的Gradle文件配置</h2><p><a href="https://developer.android.com/studio/build/index.html" target="_blank" rel="external">参考链接</a></p>
-<h3 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h3><h4 id="Android-app-module-的构建过程"><a href="#Android-app-module-的构建过程" class="headerlink" title="Android app module 的构建过程"></a>Android app module 的构建过程</h4><p><img src="https://developer.android.com/images/tools/studio/build-process_2x.png" alt="构建过程"></p>
-<h4 id="自定义构建配置"><a href="#自定义构建配置" class="headerlink" title="自定义构建配置"></a>自定义构建配置</h4><p>Build Types</p>
-<ul>
-<li>Build types 通常用于定义开发周期中的不同阶段，例如在 debug 阶段开启debug选项， release 阶段开启代码压缩、代码混淆并使用正式的key对apk进行签名。</li>
+        <h3 id="异步请求流程"><a href="#异步请求流程" class="headerlink" title="异步请求流程"></a>异步请求流程</h3><ul>
+<li>从这样一句话开始发出一个异步的请求</li>
 </ul>
-<p>Product Flavors</p>
+<p><code>okHttpClient.newCall(request).enqueue(callback);</code></p>
 <ul>
-<li><p>Product flavors 代表app发行的不同版本，例如免费版和付费版，可以让不同的 Product flavors 使用不同的代码和资源文件，或者只是定义不同的渠道包。</p>
-</li>
-<li><p>defaultConfig 属于 Product Flavors，相当于默认的基本配置</p>
-</li>
+<li>实际上调用的是 RealCall 的 enqueue 方法，将回调包装成一个 AsyncCall(NamedRunnabled的子类) 传递给了 Client 的 Dispatcher</li>
 </ul>
-<p>Build Variants</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//@see OkHttpClient</div><div class="line">@Override public Call newCall(Request request) &#123;</div><div class="line">  return new RealCall(this, request);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//@see RealCall</div><div class="line">@Override public void enqueue(Callback responseCallback) &#123;</div><div class="line">  synchronized (this) &#123;</div><div class="line">    if (executed) throw new IllegalStateException(&quot;Already Executed&quot;);</div><div class="line">    executed = true;</div><div class="line">  &#125;</div><div class="line">  client.dispatcher().enqueue(new AsyncCall(responseCallback));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li>build variant = product flavor + build type, Gradle会把 product flavor 和 build type 的配置组合在一起，形成一个 build variant 的配置，由系统自动生成。</li>
-</ul>
-<p>Manifest Entries</p>
-<ul>
-<li><p>build variant 的部分配置信息会直接覆盖到 manifest 文件上去，例如 applicationId、versionName、target SDK version 等。</p>
-<p>  也可以通过 manifestPlaceholders 来配置跟不同的 build variant 相关的变量</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">defaultConfig &#123;</div><div class="line">    manifestPlaceholders = [NAME:&quot;value&quot;]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>  然后这样在 manifest 中使用变量</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;meta-data</div><div class="line">    android:name=&quot;TYPE_VALUE&quot;</div><div class="line">    android:value=&quot;$&#123;NAME&#125;&quot; /&gt;</div></pre></td></tr></table></figure>
+<li>每当 Dispatcher 收到一个新的 AsyncCall<ol>
+<li>如果有空闲的线程就去将其放入执行队列，并执行它</li>
+<li>没有的话，就放入等待队列</li>
+</ol>
 </li>
 </ul>
-<p>Dependencies</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//@see Dispatcher</div><div class="line">synchronized void enqueue(AsyncCall call) &#123;</div><div class="line">  if (runningAsyncCalls.size() &lt; maxRequests &amp;&amp; runningCallsForHost(call) &lt; maxRequestsPerHost) &#123;</div><div class="line">    runningAsyncCalls.add(call);</div><div class="line">    executorService().execute(call);</div><div class="line">  &#125; else &#123;</div><div class="line">    readyAsyncCalls.add(call);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li>构建系统通过 dependencies 来管理本地依赖文件和远程仓库依赖。</li>
-</ul>
-<p>Signing</p>
-<ul>
-<li><p>可以在不同的 buildTypes 中配置 signingConfig 来选择签名配置，构建系统会使用默认的key去打包 debuggable 为 true 的版本，release版本的 signingConfig 需要自己配置。</p>
-<ul>
-<li>一个 applicationId 唯一确定一个apk</li>
-<li>相同的 applicationId，打包的key不同的话，以最先发布的apk的key为准</li>
-</ul>
+<li><p>AsyncCall 的执行过程通过 <code>getResponseWithInterceptorChain()</code> 来链式调用<code>client.interceptors()</code>，从上到下层层包装了各种缓存、重试等机制，并添加部分默认的Headers参数等，最后调用到<code>CallServerInterceptor.intercept(Chain chain)</code>方法和服务器建立 Socket 连接取得 Response，然后再把 Response 沿着来时的顺序由下往上层层返回，并进行相应的处理，最后返回到 AsyncCall 的 execute 方法中。</p>
+</li>
+<li><p>然后相应的调用成功或失败的回调（还是在执行线程中，不会切换到主线程）</p>
 </li>
 </ul>
-<p>ProGuard</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">//@see RealCall.AsyncCall</div><div class="line">  @Override protected void execute() &#123;</div><div class="line">    boolean signalledCallback = false;</div><div class="line">    try &#123;</div><div class="line">      Response response = getResponseWithInterceptorChain();</div><div class="line">      if (retryAndFollowUpInterceptor.isCanceled()) &#123;</div><div class="line">        signalledCallback = true;</div><div class="line">        responseCallback.onFailure(RealCall.this, new IOException(&quot;Canceled&quot;));</div><div class="line">      &#125; else &#123;</div><div class="line">        signalledCallback = true;</div><div class="line">        responseCallback.onResponse(RealCall.this, response);</div><div class="line">      &#125;</div><div class="line">    &#125; catch (IOException e) &#123;</div><div class="line">      if (signalledCallback) &#123;</div><div class="line">        // Do not signal the callback twice!</div><div class="line">        Platform.get().log(INFO, &quot;Callback failure for &quot; + toLoggableString(), e);</div><div class="line">      &#125; else &#123;</div><div class="line">        responseCallback.onFailure(RealCall.this, e);</div><div class="line">      &#125;</div><div class="line">    &#125; finally &#123;</div><div class="line">      client.dispatcher().finished(this);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">private Response getResponseWithInterceptorChain() throws IOException &#123;</div><div class="line">  // Build a full stack of interceptors.</div><div class="line">  List&lt;Interceptor&gt; interceptors = new ArrayList&lt;&gt;();</div><div class="line">  interceptors.addAll(client.interceptors());</div><div class="line">  interceptors.add(retryAndFollowUpInterceptor);</div><div class="line">  interceptors.add(new BridgeInterceptor(client.cookieJar()));</div><div class="line">  interceptors.add(new CacheInterceptor(client.internalCache()));</div><div class="line">  interceptors.add(new ConnectInterceptor(client));</div><div class="line">  if (!retryAndFollowUpInterceptor.isForWebSocket()) &#123;</div><div class="line">    interceptors.addAll(client.networkInterceptors());</div><div class="line">  &#125;</div><div class="line">  interceptors.add(new CallServerInterceptor(</div><div class="line">      retryAndFollowUpInterceptor.isForWebSocket()));</div><div class="line"></div><div class="line">  Interceptor.Chain chain = new RealInterceptorChain(</div><div class="line">      interceptors, null, null, null, 0, originalRequest);</div><div class="line">  return chain.proceed(originalRequest);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
-<li>不同的 build variants 可以采用不同的 ProGuard rules file，当配置了多个时，会把它们合并到一起。</li>
+<li>最后在<code>client.dispatcher().finished()</code>方法中会<ol>
+<li>将该 AsyncCall 从执行队列中移除</li>
+<li>调用<code>Dispatcher.promoteCalls()</code>方法来将等待队列中的 AsyncCall 放入执行队列中并执行</li>
+</ol>
+</li>
 </ul>
-<p>APK Splits</p>
-<ul>
-<li>可以使用指定的代码和资源文件来打包对应不同分辨率的apk。（当你的apk为了支持不同分辨率导致体积在100M以上时，才推荐这么做）</li>
-</ul>
-<h4 id="源代码设置"><a href="#源代码设置" class="headerlink" title="源代码设置"></a>源代码设置</h4><p>不同目录下的代码和资源文件会按照是否需要以及相应的优先级合并到一起，组合成最后的 buildVariant 所对应的代码</p>
-<p>src/main/</p>
-<ul>
-<li>This source set includes code and resources common to all build variants.</li>
-</ul>
-<p>src/buildType/</p>
-<ul>
-<li>only for a specific build type.</li>
-</ul>
-<p>src/productFlavor/</p>
-<ul>
-<li>only for a specific product flavor.</li>
-</ul>
-<p>src/productFlavorBuildType/</p>
-<ul>
-<li>only for a specific build variant.</li>
-</ul>
-<p>当不同目录的代码有冲突时，会按照下面的优先级来选择</p>
-<blockquote>
-<p>build variant &gt; build type &gt; product flavor &gt; main source set &gt; library dependencies</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">//@see Dispatcher</div><div class="line">private void promoteCalls() &#123;</div><div class="line">  if (runningAsyncCalls.size() &gt;= maxRequests) return; // Already running max capacity.</div><div class="line">  if (readyAsyncCalls.isEmpty()) return; // No ready calls to promote.</div><div class="line"></div><div class="line">  for (Iterator&lt;AsyncCall&gt; i = readyAsyncCalls.iterator(); i.hasNext(); ) &#123;</div><div class="line">    AsyncCall call = i.next();</div><div class="line"></div><div class="line">    if (runningCallsForHost(call) &lt; maxRequestsPerHost) &#123;</div><div class="line">      i.remove();</div><div class="line">      runningAsyncCalls.add(call);</div><div class="line">      executorService().execute(call);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    if (runningAsyncCalls.size() &gt;= maxRequests) return; // Reached max capacity.</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="同步请求流程"><a href="#同步请求流程" class="headerlink" title="同步请求流程"></a>同步请求流程</h3><p>这个会把 realCall 放到 dispatcher 的 runningSyncCalls 中，用于对请求的统一管理</p>
+<p>并直接在当前线程调用<code>getResponseWithInterceptorChain()</code>获得 Response</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">//@see RealCall</div><div class="line">@Override public Response execute() throws IOException &#123;</div><div class="line">  synchronized (this) &#123;</div><div class="line">    if (executed) throw new IllegalStateException(&quot;Already Executed&quot;);</div><div class="line">    executed = true;</div><div class="line">  &#125;</div><div class="line">  try &#123;</div><div class="line">    client.dispatcher().executed(this);</div><div class="line">    Response result = getResponseWithInterceptorChain();</div><div class="line">    if (result == null) throw new IOException(&quot;Canceled&quot;);</div><div class="line">    return result;</div><div class="line">  &#125; finally &#123;</div><div class="line">    client.dispatcher().finished(this);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -495,9 +456,9 @@ Product flavors 代表app发行的">
       
         <div class="post-tags">
           
-            <a href="/tags/Gradle/" rel="tag"># Gradle</a>
+            <a href="/tags/OkHttp/" rel="tag"># OkHttp</a>
           
-            <a href="/tags/配置/" rel="tag"># 配置</a>
+            <a href="/tags/源码分析/" rel="tag"># 源码分析</a>
           
         </div>
       
@@ -506,8 +467,8 @@ Product flavors 代表app发行的">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/21/RxJava基础使用及原理分析/" rel="next" title="RxJava基础使用及原理分析">
-                <i class="fa fa-chevron-left"></i> RxJava基础使用及原理分析
+              <a href="/2016/11/30/iTerm2配色设置/" rel="next" title="iTerm2配色设置">
+                <i class="fa fa-chevron-left"></i> iTerm2配色设置
               </a>
             
           </div>
@@ -515,10 +476,6 @@ Product flavors 代表app发行的">
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/30/iTerm2配色设置/" rel="prev" title="iTerm2配色设置">
-                iTerm2配色设置 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -544,8 +501,8 @@ Product flavors 代表app发行的">
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/11/24/AS中的Gradle文件配置/"
-           data-title="AS中的Gradle文件配置" data-url="http://yoursite.com/2016/11/24/AS中的Gradle文件配置/">
+      <div class="ds-thread" data-thread-key="2016/12/04/OkHttp源码分析/"
+           data-title="OkHttp源码分析" data-url="http://yoursite.com/2016/12/04/OkHttp源码分析/">
       </div>
     
   </div>
@@ -653,7 +610,7 @@ Product flavors 代表app发行的">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#AS中的Gradle文件配置"><span class="nav-number">1.</span> <span class="nav-text">AS中的Gradle文件配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总览"><span class="nav-number">1.1.</span> <span class="nav-text">总览</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Android-app-module-的构建过程"><span class="nav-number">1.1.1.</span> <span class="nav-text">Android app module 的构建过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义构建配置"><span class="nav-number">1.1.2.</span> <span class="nav-text">自定义构建配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源代码设置"><span class="nav-number">1.1.3.</span> <span class="nav-text">源代码设置</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步请求流程"><span class="nav-number">1.</span> <span class="nav-text">异步请求流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步请求流程"><span class="nav-number">2.</span> <span class="nav-text">同步请求流程</span></a></li></ol></div>
             
 
           </div>
